@@ -1,7 +1,4 @@
-## curso-platzi-react-avanzado ⚛️
+## Advanced React ⚛️
 
-**¡Sígueme en Youtube para más contenido de React y Javascript!** 👉 https://www.youtube.com/midudev
+React project from Platzi's advanced react course.
 
-**¡Sígueme en Twitch para streams sobre desarrollo web!** 👉 https://www.twitch.tv/midudev
-
-Repositorio con el código del [Curso Avanzado de React de Platzi](https://platzi.com/cursos/react-avanzado/)
