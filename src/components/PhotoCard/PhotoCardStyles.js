@@ -1,4 +1,8 @@
-import styled from 'styled-components'
+import styled, {keyframes} from 'styled-components'
+
+const fadeInKeyframes = keyframes`
+    
+`
 
 export const ImgWrapper = styled.div`
     border-radius: 10px;
