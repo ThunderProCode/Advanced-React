@@ -6,7 +6,7 @@ export const ListOfPhotoCards = () => {
     <ul>
       {
         // eslint-disable-next-line react/jsx-key
-        [1, 2, 3].map(id => <PhotoCard />)
+        [1, 2, 3,4,5,6].map(id => <PhotoCard key={id} />)
       }
     </ul>
   )
