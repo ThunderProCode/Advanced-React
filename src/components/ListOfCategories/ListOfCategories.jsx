@@ -1,17 +1,40 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { Category } from '../Category/Category.jsx'
 import { List, Item } from './styles'
-import db from '../../../api/db.json'
+import { useCategoriesData } from '../../Hooks/useCategoriesData.js'
 
 export const ListOfCategories = () => {
-  return (
-    <List>
+
+  const [showFixed, setShowFixed] = useState(false);
+  const { categories, loading } = useCategoriesData();
+
+  useEffect( () => {
+    const onScroll = e => {
+      const newShowFixed = window.scrollY > 200
+      showFixed != newShowFixed && setShowFixed(newShowFixed) 
+    }
+    document.addEventListener('scroll', onScroll)
+    return () => document.removeEventListener('scroll', onScroll)
+  }, [showFixed])
+
+  const renderList = (fixed) => (
+    <List fixed={fixed}>
       {
-        db.categories.map(category =>
-          // eslint-disable-next-line react/jsx-key
+        categories.map(category =>
           <Item key={category.id}><Category {...category} /></Item>
         )
       }
     </List>
+  )
+
+  if(loading){
+    return 'Loading...'
+  } 
+
+  return (
+    <>
+      {renderList()}
+      { showFixed && renderList(true)}
+    </>
   )
 }
